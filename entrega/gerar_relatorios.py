@@ -160,7 +160,7 @@ def likert(wb,out,tmp):
     mq=[st.mean(p["adj"][i] for p in pes) for i in range(12)]
     fig,ax=plt.subplots(figsize=(7,4)); ax.barh(range(12),mq,color=[VERDE if v>=4 else AMAR if v>=3 else VERM for v in mq]); ax.set_yticks(range(12)); ax.set_yticklabels(["L%d %s"%(i+1,LIK[i][0]) for i in range(12)],fontsize=7.5); ax.invert_yaxis(); ax.set_xlim(1,5); ax.set_xlabel("Média (1 a 5, negativas já invertidas)"); ax.set_title("Média por afirmação",fontsize=10)
     fig.tight_layout(); p3=os.path.join(tmp,"lk3.png"); fig.savefig(p3,dpi=160); plt.close(fig)
-    story+=[Image(p1,16*cm,6.9*cm),Spacer(1,4),Image(p2,16*cm,6.9*cm),PageBreak(),Image(p3,16*cm,9.1*cm)]
+    story+=[Image(p1,15*cm,6.4*cm),Spacer(1,4),Image(p2,15*cm,6.4*cm),PageBreak(),Image(p3,14*cm,8*cm)]
     story.append(P("Resultados por faixa etária",H2))
     story.append(tab([["Faixa","Pessoas","Média","Positivo","Neutro","Negativo"]]+[[f,len(cont[f]),"%.2f"%st.mean(p["m"] for p in cont[f]) if cont[f] else "—"]+[sum(1 for p in cont[f] if p["s"]==s) for s in("Positivo","Neutro","Negativo")] for f in FAIXAS],[3.5*cm,2*cm,2*cm,2.5*cm,2.5*cm,2.5*cm]))
     story.append(P("5. Comentários (transcritos, sem identificação)",H2))
