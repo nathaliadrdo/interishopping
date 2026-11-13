@@ -65,28 +65,28 @@ def stakeholders(wb,out,tmp):
         if all(v is not None for v in q): score=(sum(q[i]-1 for i in range(0,10,2))+sum(5-q[i] for i in range(1,10,2)))*2.5
         alunos.append(dict(nome=nome,sob=ts.cell(r,2).value or "",tarefas=tarefas,q=q,sus=score,gostou=sus.cell(r,14).value,melhorar=sus.cell(r,15).value))
     comdados=[a for a in alunos if any(t[0] for t in a["tarefas"]) or a["sus"] is not None]
-    story=capa("Relatório do questionário avaliativo dos stakeholders","Teste de usabilidade com 3 alunos de outras equipes")
+    story=capa("Relatório do questionário avaliativo dos stakeholders","Teste de usabilidade com 3 alunas de outras equipes")
     story+= [P("1. Objetivo",H2),P("Verificar se pessoas que não participaram do desenvolvimento conseguem executar as tarefas principais do InteriShopping e medir a usabilidade percebida com a escala SUS (System Usability Scale)."),
         P("2. Método",H2),
-        P("Participaram os alunos <b>%s</b>, de outras equipes da turma. Cada um recebeu 5 tarefas, sem treinamento prévio, e registramos se concluiu (sim, com ajuda ou não), o tempo em segundos e o número de erros. Ao final respondeu ao SUS (10 afirmações, escala 1 a 5) e a duas perguntas abertas. A pontuação SUS vai de 0 a 100 e a referência de mercado é 68."%", ".join(a["nome"] for a in alunos))]
+        P("Participaram os alunos <b>%s</b>, de outras equipes da turma. O teste foi feito <b>à distância</b>: cada aluna recebeu 5 tarefas, sem treinamento prévio, e relatou se concluiu (sim, com ajuda ou não); tempo e número de erros foram registrados apenas quando informados. Ao final respondeu ao SUS (10 afirmações, escala 1 a 5) e a duas perguntas abertas. A pontuação SUS vai de 0 a 100 e a referência de mercado é 68."%", ".join(a["nome"] for a in alunos))]
     if not comdados:
         story+=[P("<b>Dados ainda não coletados.</b> Preencha a planilha e gere o relatório novamente.")]; build(out,story); return "SEM DADOS"
     story.append(P("3. Resultados por tarefa",H2))
-    rows=[["Tarefa"]+[a["nome"] for a in alunos]+["Concluíram","Tempo médio","Erros médios"]]
+    rows=[["Tarefa"]+[a["nome"] for a in alunos]+["Concl.","Tempo médio","Erros médios"]]
     conc=[];tmeds=[]
     for k,t in enumerate(TAR):
         cel=[];ok=0;tem=[];er=[];n=0
         for a in alunos:
             c,tp,e=a["tarefas"][k]
             if c: n+=1
-            cel.append("%s · %s s · %s err."%(c or "—", "%g"%tp if tp is not None else "—", "%g"%e if e is not None else "—"))
+            cel.append(" · ".join([c or "—"]+(["%g s"%tp] if tp is not None else [])+(["%g err."%e] if e is not None else [])))
             if c=="Sim": ok+=1
             if tp is not None: tem.append(tp)
             if e is not None: er.append(e)
         conc.append((sum(1 for a in alunos if a["tarefas"][k][0]=="Sim"),sum(1 for a in alunos if a["tarefas"][k][0]=="Com ajuda"),sum(1 for a in alunos if a["tarefas"][k][0]=="Não")))
         tmeds.append(st.mean(tem) if tem else 0)
         rows.append([t]+cel+["%d de %d"%(ok,n) if n else "—","%.0f s"%st.mean(tem) if tem else "—","%.1f"%st.mean(er) if er else "—"])
-    story.append(tab(rows,[3.3*cm]+[2.8*cm]*3+[2.0*cm,1.6*cm,1.6*cm]))
+    story.append(tab(rows,[3.6*cm]+[2.8*cm]*3+[1.8*cm,1.6*cm,1.6*cm]))
     fig,ax=plt.subplots(figsize=(7,3)); y=range(len(TAR))
     sim=[c[0] for c in conc]; aj=[c[1] for c in conc]; nao=[c[2] for c in conc]
     ax.barh(y,sim,color=VERDE,label="Sim"); ax.barh(y,aj,left=sim,color=AMAR,label="Com ajuda"); ax.barh(y,nao,left=[a+b for a,b in zip(sim,aj)],color=VERM,label="Não")
@@ -108,17 +108,19 @@ def stakeholders(wb,out,tmp):
         pior=sorted(range(10),key=lambda i:adj[i])[:2]
     else: pior=[]
     story.append(P("5. Comentários dos alunos (transcritos)",H2))
+    ha=False
     for a in alunos:
         if a["gostou"] or a["melhorar"]:
-            story.append(P("<b>%s</b> · Gostou: %s · Melhorar: %s"%(a["nome"],a["gostou"] or "—",a["melhorar"] or "—")))
+            ha=True; story.append(P("<b>%s</b> · Gostou: %s · Melhorar: %s"%(a["nome"],a["gostou"] or "não informado",a["melhorar"] or "não informado")))
+    if not ha: story.append(P("As alunas não registraram comentários nas perguntas abertas."))
     story.append(P("6. Análise",H2))
     lin=[]
     falhas=[TAR[k] for k,c in enumerate(conc) if c[1]+c[2]>0]
     lin.append("Todas as tarefas foram concluídas sem ajuda por todos os alunos que as tentaram." if not falhas and sum(conc[0])>0 else ("Tarefas em que houve ajuda ou desistência: %s."%"; ".join(falhas) if falhas else "Há tarefas ainda sem registro."))
     if tmeds and any(tmeds): lin.append("A tarefa mais demorada foi <b>%s</b> (média de %.0f s)."%(TAR[max(range(5),key=lambda i:tmeds[i])],max(tmeds)))
-    if pior: lin.append("As afirmações do SUS com menor contribuição foram Q%d (%s) e Q%d (%s); são os pontos a priorizar na próxima versão."%(pior[0]+1,SUS[pior[0]],pior[1]+1,SUS[pior[1]]))
+    if pior: lin.append("As afirmações do SUS com menor contribuição foram Q%d (%s) e Q%d (%s); foram as menos pontuadas; mesmo assim, só indicam onde há mais espaço para melhorar."%(pior[0]+1,SUS[pior[0]],pior[1]+1,SUS[pior[1]]))
     for l in lin: story.append(P("• "+l))
-    story+=[P("7. Limitações",H2),P("Amostra de apenas 3 alunos, todos da mesma turma, o que não permite generalizar os resultados. Os números são indicativos e servem para orientar correções, não para comparar o app com outros.")]
+    story+=[P("7. Limitações",H2),P("Amostra de apenas 3 alunas, todas da mesma turma, o que não permite generalizar os resultados. O teste foi à distância, sem observação direta: a conclusão das tarefas é relatada pelas próprias participantes e não há medição de tempo nem de erros. Os números são indicativos e servem para orientar correções, não para comparar o app com outros.")]
     build(out,story); return "ok"
 
 def likert(wb,out,tmp):

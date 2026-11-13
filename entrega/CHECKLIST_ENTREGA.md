@@ -11,7 +11,7 @@
 
 ## Itens da atividade
 - [ ] 1. Vídeo .mp4 (2 a 3 min), 1 jornada stakeholder + 1 jornada público geral: roteiro em `Roteiro_Video.pdf`
-- [ ] 2. Relatório dos stakeholders em PDF (Thayane, Thais e Aruana): aplicar `Questionario_Stakeholders.pdf`, digitar na planilha, rodar `gerar_relatorios.py`
+- [ ] 2. Relatório dos stakeholders em PDF (Thayane, Thaís e Aruana): aplicar `Questionario_Stakeholders.pdf`, digitar na planilha, rodar `gerar_relatorios.py`
 - [ ] 3. Relatório Likert em PDF (>= 10 pessoas; 2 por faixa: 15-26, 27-39, 40-52, 53-64, 65+): aplicar `Questionario_Likert_Publico.pdf`, digitar na planilha, rodar `gerar_relatorios.py`
 - [ ] Planilha `RESUMO` mostra "OK" na cobertura mínima
 
