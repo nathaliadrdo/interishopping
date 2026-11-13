@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra de navegação inferior, repetida em Início, Pedidos, Catálogo, Clientes e Perfil.
+     Quem configura os cliques e a aba ativa é o Nav.kt. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/branco"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/borda" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/navInicio"
+            style="@style/NavItem"
+            android:drawableTop="@drawable/ic_home"
+            android:text="@string/nav_inicio" />
+
+        <TextView
+            android:id="@+id/navPedidos"
+            style="@style/NavItem"
+            android:drawableTop="@drawable/ic_pedidos"
+            android:text="@string/pedidos" />
+
+        <TextView
+            android:id="@+id/navCatalogo"
+            style="@style/NavItem"
+            android:drawableTop="@drawable/ic_catalogo"
+            android:text="@string/nav_catalogo" />
+
+        <TextView
+            android:id="@+id/navClientes"
+            style="@style/NavItem"
+            android:drawableTop="@drawable/ic_clientes"
+            android:text="@string/nav_clientes" />
+
+        <TextView
+            android:id="@+id/navPerfil"
+            style="@style/NavItem"
+            android:drawableTop="@drawable/ic_perfil"
+            android:text="@string/nav_perfil" />
+    </LinearLayout>
+</LinearLayout>

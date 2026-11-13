@@ -1,0 +1,8 @@
+<?php
+// Copie este arquivo para config.local.php (na mesma pasta) e preencha com os dados
+// que o professor/a universidade forneceu. NÃO envie config.local.php para ninguém.
+define('DB_HOST', 'COLOQUE_O_HOST_AQUI');      // ex.: localhost (XAMPP) ou o endereço do servidor da universidade
+define('DB_PORT', '3306');
+define('DB_NAME', 'COLOQUE_O_NOME_DO_BANCO');
+define('DB_USER', 'COLOQUE_O_USUARIO');
+define('DB_PASS', 'COLOQUE_A_SENHA');

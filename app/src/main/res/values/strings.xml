@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Português (padrão). Inglês em values-en e espanhol em values-es. -->
+    <string name="app_name">InteriShopping</string>
+    <string name="tagline">Seus pedidos em um só lugar</string>
+    <string name="btn_entrar">Entrar</string>
+    <string name="btn_criar_conta">Criar conta</string>
+    <string name="link_esqueci_senha">Esqueci minha senha</string>
+    <string name="hint_login">E-mail ou telefone</string>
+    <string name="hint_senha">Senha</string>
+    <string name="err_campo_obrigatorio">Campo obrigatório. Preencha para continuar.</string>
+    <string name="msg_login_invalido">E-mail/telefone ou senha inválidos. Confira e tente de novo.</string>
+    <string name="msg_sem_conexao">Sem conexão com o servidor. Verifique a internet e tente novamente.</string>
+    <string name="msg_email_existente">Já existe uma conta com este e-mail ou telefone.</string>
+    <string name="msg_dados_invalidos">Dados inválidos. Revise os campos e tente novamente.</string>
+    <string name="msg_erro_servidor" formatted="true">Erro no servidor (código %1$d). Tente novamente.</string>
+    <string name="msg_conta_criada">Conta criada! Entre com seus dados.</string>
+    <string name="titulo_cadastro">Criar conta</string>
+    <string name="hint_nome">Nome</string>
+    <string name="hint_email">E-mail</string>
+    <string name="hint_telefone">Telefone com DDD</string>
+    <string name="err_nome">Informe o nome.</string>
+    <string name="err_email">E-mail inválido. Use o formato nome@exemplo.com.</string>
+    <string name="err_telefone">Telefone incompleto. Use DDD + 9 dígitos.</string>
+    <string name="err_senha_curta">A senha precisa ter ao menos 6 caracteres.</string>
+    <string name="pedidos">Pedidos</string>
+    <string name="filtro_abertos">Abertos 3</string>
+    <string name="filtro_producao">Em produção 2</string>
+    <string name="filtro_finalizados">Finalizados</string>
+    <string name="hint_busca_pedido">Buscar cliente ou código</string>
+    <string name="status_pendente">Pendente</string>
+    <string name="status_producao">Em produção</string>
+    <string name="status_a_caminho">A caminho</string>
+    <string name="btn_novo_pedido">+ Novo pedido</string>
+    <string name="nav_inicio">Início</string>
+    <string name="nav_catalogo">Catálogo</string>
+    <string name="nav_clientes">Clientes</string>
+    <string name="nav_perfil">Perfil</string>
+    <string name="msg_em_desenvolvimento">Em desenvolvimento</string>
+    <string name="msg_detalhe_pedido">Detalhe do pedido em desenvolvimento</string>
+    <string name="titulo_novo_pedido">Novo pedido</string>
+    <string name="itens">Itens</string>
+    <string name="btn_adicionar_item">+ Adicionar item</string>
+    <string name="desconto">Desconto</string>
+    <string name="total">Total</string>
+    <string name="btn_salvar_pedido">Salvar pedido</string>
+    <string name="hint_cliente">Cliente (WhatsApp)</string>
+    <string name="hint_entrega">Entrega: R$</string>
+    <string name="hint_pagamento">Pagamento</string>
+    <string name="cd_voltar">Voltar</string>
+    <string name="err_valor_invalido">Valor inválido. Use um número maior ou igual a zero, como 8,50.</string>
+    <string name="msg_pedido_salvo">Pedido salvo!</string>
+    <string name="titulo_catalogo">Catálogo</string>
+    <string name="hint_busca_produto">Buscar produto</string>
+    <string name="btn_novo_produto">+ Novo produto</string>
+    <string name="msg_sem_produtos">Cadastre seu primeiro produto.</string>
+    <string name="estoque_un" formatted="true">%1$d un.</string>
+    <string name="estoque_baixo">Estoque baixo</string>
+    <string name="btn_editar">Editar</string>
+    <string name="btn_excluir">Excluir</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="dlg_excluir_titulo">Excluir produto?</string>
+    <string name="dlg_excluir_msg" formatted="true">%1$s sairá do catálogo.</string>
+    <string name="msg_produto_excluido">Produto excluído.</string>
+    <string name="titulo_novo_produto">Novo produto</string>
+    <string name="titulo_editar_produto">Editar produto</string>
+    <string name="hint_nome_produto">Nome do produto</string>
+    <string name="hint_categoria">Categoria</string>
+    <string name="hint_preco">Preço (R$)</string>
+    <string name="hint_estoque">Quantidade em estoque</string>
+    <string name="btn_salvar_produto">Salvar produto</string>
+    <string name="err_nome_produto">Informe o nome do produto.</string>
+    <string name="err_preco">Preço inválido. Use um valor maior ou igual a zero, como 70,00.</string>
+    <string name="err_estoque">Quantidade inválida. Use um número inteiro maior ou igual a zero.</string>
+    <string name="msg_produto_salvo">Produto salvo!</string>
+
+    <!-- ===== v2: painel, pedidos, clientes, perfil e WhatsApp ===== -->
+    <string name="saudacao" formatted="true">Olá, %1$s</string>
+    <string name="inicio_faturamento">Faturamento do mês</string>
+    <string name="inicio_vs_anterior" formatted="true">%1$s vs. mês anterior</string>
+    <string name="inicio_sem_comparacao">Sem mês anterior para comparar</string>
+    <string name="inicio_pedidos_hoje">Pedidos hoje</string>
+    <string name="inicio_por_status">Pedidos por status</string>
+    <string name="inicio_pedidos_unid">pedidos</string>
+    <string name="inicio_vendas_semana">Vendas dos últimos 7 dias</string>
+    <string name="dia_seg">Seg</string>
+    <string name="dia_ter">Ter</string>
+    <string name="dia_qua">Qua</string>
+    <string name="dia_qui">Qui</string>
+    <string name="dia_sex">Sex</string>
+    <string name="dia_sab">Sáb</string>
+    <string name="dia_dom">Dom</string>
+    <string name="status_finalizado">Concluído</string>
+    <string name="filtro_todos">Todos</string>
+    <string name="msg_sem_pedidos">Nenhum pedido por aqui ainda. Toque em Novo pedido.</string>
+    <string name="pedido_codigo" formatted="true">Pedido #%1$d</string>
+    <string name="btn_avisar_whats">Avisar no WhatsApp</string>
+    <string name="hint_cliente_nome">Nome do cliente</string>
+    <string name="hint_cliente_whats">WhatsApp do cliente (DDD + 9 dígitos)</string>
+    <string name="hint_desconto">Desconto: R$</string>
+    <string name="pag_pix">Pix</string>
+    <string name="pag_dinheiro">Dinheiro</string>
+    <string name="pag_cartao">Cartão</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="dlg_escolher_produto">Escolha o produto</string>
+    <string name="dlg_quantidade" formatted="true">Quantidade de %1$s</string>
+    <string name="btn_adicionar">Adicionar</string>
+    <string name="hint_quantidade">Quantidade</string>
+    <string name="err_quantidade">Informe uma quantidade inteira maior que zero.</string>
+    <string name="err_sem_itens">Adicione ao menos um item ao pedido.</string>
+    <string name="msg_cadastre_produtos">Cadastre produtos no Catálogo antes de criar um pedido.</string>
+    <string name="msg_estoque_insuficiente">Estoque insuficiente para este pedido.</string>
+    <string name="cd_remover_item">Remover item</string>
+    <string name="detalhe_andamento">Andamento do pedido</string>
+    <string name="detalhe_entrega">Entrega</string>
+    <string name="detalhe_pagamento" formatted="true">Pagamento: %1$s</string>
+    <string name="detalhe_mensagem">Mensagem para o cliente</string>
+    <string name="detalhe_escolha_status">Escolha o status que o cliente receberá</string>
+    <string name="btn_atualizar_status">Atualizar status</string>
+    <string name="btn_enviar_whats">Enviar pelo WhatsApp</string>
+    <string name="msg_status_atualizado">Status atualizado.</string>
+    <string name="dica_whats">O WhatsApp abre com a mensagem pronta; você só toca em enviar.</string>
+    <string name="msg_whats_indisponivel">Não foi possível abrir o WhatsApp neste aparelho.</string>
+    <string name="msgw_pendente" formatted="true">Olá, %1$s! Recebemos seu pedido #%2$d: %3$s. Total: %4$s. Em breve avisamos o andamento.</string>
+    <string name="msgw_producao" formatted="true">Olá, %1$s! Seu pedido #%2$d já está em produção: %3$s. Total: %4$s.</string>
+    <string name="msgw_a_caminho" formatted="true">Olá, %1$s! Seu pedido #%2$d saiu para entrega: %3$s. Total: %4$s. Agradecemos a compra!</string>
+    <string name="msgw_finalizado" formatted="true">Olá, %1$s! Seu pedido #%2$d foi concluído: %3$s. Total: %4$s. Agradecemos a preferência!</string>
+    <string name="titulo_clientes">Clientes</string>
+    <string name="hint_busca_cliente">Buscar cliente</string>
+    <string name="msg_sem_clientes">Os clientes aparecem aqui quando você cria um pedido.</string>
+    <string name="cliente_resumo" formatted="true">%1$d pedido(s) · %2$s</string>
+    <string name="btn_whats">WhatsApp</string>
+    <string name="titulo_perfil">Perfil</string>
+    <string name="perfil_conta">Conta</string>
+    <string name="btn_sair">Sair da conta</string>
+    <string name="perfil_servidor" formatted="true">Servidor: %1$s</string>
+    <string name="perfil_idioma">O idioma segue o do aparelho: português, inglês ou espanhol.</string>
+    <string name="catalogo_produtos">produtos</string>
+    <string name="catalogo_itens_estoque">itens em estoque</string>
+    <string name="catalogo_estoque_baixo">com estoque baixo</string>
+    <string name="cd_grafico_semana">Gráfico de barras com as vendas dos últimos 7 dias</string>
+    <string name="cd_grafico_status">Gráfico de rosca com os pedidos por status</string>
+    <string name="cd_andamento" formatted="true">Andamento do pedido: %1$s</string>
+</resources>

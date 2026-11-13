@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">InteriShopping</string>
+    <string name="tagline">Your orders in one place</string>
+    <string name="btn_entrar">Sign in</string>
+    <string name="btn_criar_conta">Create account</string>
+    <string name="link_esqueci_senha">Forgot my password</string>
+    <string name="hint_login">E-mail or phone</string>
+    <string name="hint_senha">Password</string>
+    <string name="err_campo_obrigatorio">Required field. Fill it in to continue.</string>
+    <string name="msg_login_invalido">Invalid e-mail/phone or password. Check and try again.</string>
+    <string name="msg_sem_conexao">No connection to the server. Check your internet and try again.</string>
+    <string name="msg_email_existente">An account with this e-mail or phone already exists.</string>
+    <string name="msg_dados_invalidos">Invalid data. Review the fields and try again.</string>
+    <string name="msg_erro_servidor" formatted="true">Server error (code %1$d). Try again.</string>
+    <string name="msg_conta_criada">Account created! Sign in with your details.</string>
+    <string name="titulo_cadastro">Create account</string>
+    <string name="hint_nome">Name</string>
+    <string name="hint_email">E-mail</string>
+    <string name="hint_telefone">Phone with area code</string>
+    <string name="err_nome">Enter the name.</string>
+    <string name="err_email">Invalid e-mail. Use the format name@example.com.</string>
+    <string name="err_telefone">Incomplete phone. Use area code + 9 digits.</string>
+    <string name="err_senha_curta">The password must have at least 6 characters.</string>
+    <string name="pedidos">Orders</string>
+    <string name="filtro_abertos">Open 3</string>
+    <string name="filtro_producao">In production 2</string>
+    <string name="filtro_finalizados">Completed</string>
+    <string name="hint_busca_pedido">Search customer or code</string>
+    <string name="status_pendente">Pending</string>
+    <string name="status_producao">In production</string>
+    <string name="status_a_caminho">On the way</string>
+    <string name="btn_novo_pedido">+ New order</string>
+    <string name="nav_inicio">Home</string>
+    <string name="nav_catalogo">Catalog</string>
+    <string name="nav_clientes">Customers</string>
+    <string name="nav_perfil">Profile</string>
+    <string name="msg_em_desenvolvimento">Under development</string>
+    <string name="msg_detalhe_pedido">Order details under development</string>
+    <string name="titulo_novo_pedido">New order</string>
+    <string name="itens">Items</string>
+    <string name="btn_adicionar_item">+ Add item</string>
+    <string name="desconto">Discount</string>
+    <string name="total">Total</string>
+    <string name="btn_salvar_pedido">Save order</string>
+    <string name="hint_cliente">Customer (WhatsApp)</string>
+    <string name="hint_entrega">Delivery: R$</string>
+    <string name="hint_pagamento">Payment</string>
+    <string name="cd_voltar">Back</string>
+    <string name="err_valor_invalido">Invalid amount. Use a number zero or greater, such as 8.50.</string>
+    <string name="msg_pedido_salvo">Order saved!</string>
+    <string name="titulo_catalogo">Catalog</string>
+    <string name="hint_busca_produto">Search product</string>
+    <string name="btn_novo_produto">+ New product</string>
+    <string name="msg_sem_produtos">Add your first product.</string>
+    <string name="estoque_un" formatted="true">%1$d units</string>
+    <string name="estoque_baixo">Low stock</string>
+    <string name="btn_editar">Edit</string>
+    <string name="btn_excluir">Delete</string>
+    <string name="btn_cancelar">Cancel</string>
+    <string name="dlg_excluir_titulo">Delete product?</string>
+    <string name="dlg_excluir_msg" formatted="true">%1$s will be removed from the catalog.</string>
+    <string name="msg_produto_excluido">Product deleted.</string>
+    <string name="titulo_novo_produto">New product</string>
+    <string name="titulo_editar_produto">Edit product</string>
+    <string name="hint_nome_produto">Product name</string>
+    <string name="hint_categoria">Category</string>
+    <string name="hint_preco">Price (R$)</string>
+    <string name="hint_estoque">Stock quantity</string>
+    <string name="btn_salvar_produto">Save product</string>
+    <string name="err_nome_produto">Enter the product name.</string>
+    <string name="err_preco">Invalid price. Use a value zero or greater, such as 70.00.</string>
+    <string name="err_estoque">Invalid quantity. Use a whole number zero or greater.</string>
+    <string name="msg_produto_salvo">Product saved!</string>
+
+    <!-- ===== v2: dashboard, orders, customers, profile and WhatsApp ===== -->
+    <string name="saudacao" formatted="true">Hi, %1$s</string>
+    <string name="inicio_faturamento">Revenue this month</string>
+    <string name="inicio_vs_anterior" formatted="true">%1$s vs. last month</string>
+    <string name="inicio_sem_comparacao">No previous month to compare</string>
+    <string name="inicio_pedidos_hoje">Orders today</string>
+    <string name="inicio_por_status">Orders by status</string>
+    <string name="inicio_pedidos_unid">orders</string>
+    <string name="inicio_vendas_semana">Sales in the last 7 days</string>
+    <string name="dia_seg">Mon</string>
+    <string name="dia_ter">Tue</string>
+    <string name="dia_qua">Wed</string>
+    <string name="dia_qui">Thu</string>
+    <string name="dia_sex">Fri</string>
+    <string name="dia_sab">Sat</string>
+    <string name="dia_dom">Sun</string>
+    <string name="status_finalizado">Completed</string>
+    <string name="filtro_todos">All</string>
+    <string name="msg_sem_pedidos">No orders yet. Tap New order.</string>
+    <string name="pedido_codigo" formatted="true">Order #%1$d</string>
+    <string name="btn_avisar_whats">Notify on WhatsApp</string>
+    <string name="hint_cliente_nome">Customer name</string>
+    <string name="hint_cliente_whats">Customer WhatsApp (area code + 9 digits)</string>
+    <string name="hint_desconto">Discount: R$</string>
+    <string name="pag_pix">Pix</string>
+    <string name="pag_dinheiro">Cash</string>
+    <string name="pag_cartao">Card</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="dlg_escolher_produto">Choose the product</string>
+    <string name="dlg_quantidade" formatted="true">Quantity of %1$s</string>
+    <string name="btn_adicionar">Add</string>
+    <string name="hint_quantidade">Quantity</string>
+    <string name="err_quantidade">Enter a whole quantity greater than zero.</string>
+    <string name="err_sem_itens">Add at least one item to the order.</string>
+    <string name="msg_cadastre_produtos">Add products to the Catalog before creating an order.</string>
+    <string name="msg_estoque_insuficiente">Not enough stock for this order.</string>
+    <string name="cd_remover_item">Remove item</string>
+    <string name="detalhe_andamento">Order progress</string>
+    <string name="detalhe_entrega">Delivery</string>
+    <string name="detalhe_pagamento" formatted="true">Payment: %1$s</string>
+    <string name="detalhe_mensagem">Message to the customer</string>
+    <string name="detalhe_escolha_status">Choose the status the customer will receive</string>
+    <string name="btn_atualizar_status">Update status</string>
+    <string name="btn_enviar_whats">Send via WhatsApp</string>
+    <string name="msg_status_atualizado">Status updated.</string>
+    <string name="dica_whats">WhatsApp opens with the message ready; you just tap send.</string>
+    <string name="msg_whats_indisponivel">Could not open WhatsApp on this device.</string>
+    <string name="msgw_pendente" formatted="true">Hi, %1$s! We received your order #%2$d: %3$s. Total: %4$s. We will update you soon.</string>
+    <string name="msgw_producao" formatted="true">Hi, %1$s! Your order #%2$d is now being prepared: %3$s. Total: %4$s.</string>
+    <string name="msgw_a_caminho" formatted="true">Hi, %1$s! Your order #%2$d is out for delivery: %3$s. Total: %4$s. Thank you for your purchase!</string>
+    <string name="msgw_finalizado" formatted="true">Hi, %1$s! Your order #%2$d is complete: %3$s. Total: %4$s. Thank you!</string>
+    <string name="titulo_clientes">Customers</string>
+    <string name="hint_busca_cliente">Search customer</string>
+    <string name="msg_sem_clientes">Customers appear here when you create an order.</string>
+    <string name="cliente_resumo" formatted="true">%1$d order(s) · %2$s</string>
+    <string name="btn_whats">WhatsApp</string>
+    <string name="titulo_perfil">Profile</string>
+    <string name="perfil_conta">Account</string>
+    <string name="btn_sair">Sign out</string>
+    <string name="perfil_servidor" formatted="true">Server: %1$s</string>
+    <string name="perfil_idioma">The language follows the device: Portuguese, English or Spanish.</string>
+    <string name="catalogo_produtos">products</string>
+    <string name="catalogo_itens_estoque">items in stock</string>
+    <string name="catalogo_estoque_baixo">low on stock</string>
+    <string name="cd_grafico_semana">Bar chart with sales in the last 7 days</string>
+    <string name="cd_grafico_status">Donut chart with orders by status</string>
+    <string name="cd_andamento" formatted="true">Order progress: %1$s</string>
+</resources>

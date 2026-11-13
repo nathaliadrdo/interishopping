@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DayNight: troca sozinho entre claro e escuro conforme o aparelho -->
+    <style name="Theme.InteriShopping" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/verde_pinheiro</item>
+        <item name="colorOnPrimary">@color/sobre_verde</item>
+        <item name="android:statusBarColor">@color/verde_pinheiro</item>
+        <item name="android:windowBackground">@color/nevoa</item>
+    </style>
+
+    <!-- v2: item da barra de navegação inferior (ícone em cima, texto embaixo) -->
+    <style name="NavItem">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawablePadding">4dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/texto_secundario</item>
+        <item name="android:drawableTint">@color/texto_secundario</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+    <!-- v2: título grande dos cabeçalhos verdes -->
+    <style name="TituloCabecalho">
+        <item name="android:textColor">@color/sobre_verde</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- v2: linha da legenda do gráfico de rosca (a bolinha colorida é colocada pelo InicioActivity) -->
+    <style name="LegendaStatus">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingVertical">3dp</item>
+        <item name="android:textColor">@color/tinta</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+</resources>
