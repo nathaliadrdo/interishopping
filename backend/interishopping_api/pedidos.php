@@ -1,5 +1,4 @@
 <?php
-// GET: usuario_id, status (opcional), q (opcional)  ->  lista de pedidos com cliente e resumo dos itens.
 require __DIR__ . '/config.php';
 
 $uid = usuario_id_get();

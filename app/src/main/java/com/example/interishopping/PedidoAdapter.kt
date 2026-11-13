@@ -8,12 +8,10 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 
-/** Lista de cards de pedidos. Toque no card = detalhe; botão = abre o WhatsApp já com a mensagem. */
 class PedidoAdapter(
     private val aoAbrir: (PedidoResumo) -> Unit,
     private val aoAvisar: (PedidoResumo) -> Unit
 ) : RecyclerView.Adapter<PedidoAdapter.VH>() {
-
     private var itens: List<PedidoResumo> = emptyList()
 
     fun atualizar(novos: List<PedidoResumo>) { itens = novos; notifyDataSetChanged() }
@@ -43,7 +41,6 @@ class PedidoAdapter(
     }
 }
 
-/** Texto + cor do "selo" de status (fundo e texto mudam por status). Usado na lista e no detalhe. */
 fun estilizarStatus(tv: TextView, s: StatusPedido) {
     val ctx = tv.context
     tv.setText(s.rotulo)

@@ -19,20 +19,15 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.util.Locale
 
-/**
- * Novo pedido. O app mostra o total estimado, mas quem calcula o total oficial é o servidor
- * (criar_pedido.php), com os preços do banco: o app não manda valor de total.
- */
 class NovoPedidoActivity : AppCompatActivity() {
     private var catalogo: List<Produto> = emptyList()
-    private val itens = mutableListOf<Pair<Produto, Int>>()     // produto + quantidade
+    private val itens = mutableListOf<Pair<Produto, Int>>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_novo_pedido)
         findViewById<TextView>(R.id.tvVoltar).setOnClickListener { finish() }
 
-        // Carrega o catálogo uma vez, para o diálogo "Adicionar item".
         ApiClient.service.listarProdutos(Session.usuarioId(this), "").executar(this, onOk = { catalogo = it })
 
         findViewById<MaterialButton>(R.id.btnAdicionarItem).setOnClickListener { escolherProduto() }
@@ -42,7 +37,6 @@ class NovoPedidoActivity : AppCompatActivity() {
         atualizarTotais()
     }
 
-    /** 1º passo do diálogo: lista de produtos com estoque. */
     private fun escolherProduto() {
         val disponiveis = catalogo.filter { it.estoque > 0 }
         if (disponiveis.isEmpty()) { Toast.makeText(this, R.string.msg_cadastre_produtos, Toast.LENGTH_LONG).show(); return }
@@ -52,7 +46,6 @@ class NovoPedidoActivity : AppCompatActivity() {
             }.show()
     }
 
-    /** 2º passo: quantidade (inteiro > 0). */
     private fun pedirQuantidade(p: Produto) {
         val campo = EditText(this).apply { inputType = InputType.TYPE_CLASS_NUMBER; hint = getString(R.string.hint_quantidade); setText("1") }
         val caixa = LinearLayout(this).apply { setPadding(56, 24, 56, 0); addView(campo, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT) }
@@ -61,7 +54,7 @@ class NovoPedidoActivity : AppCompatActivity() {
                 val q = campo.text.toString().trim().toIntOrNull()
                 if (q == null || q <= 0) { Toast.makeText(this, R.string.err_quantidade, Toast.LENGTH_SHORT).show(); return@setPositiveButton }
                 val i = itens.indexOfFirst { it.first.id == p.id }
-                if (i >= 0) itens[i] = p to (itens[i].second + q) else itens.add(p to q)   // mesmo produto soma a quantidade
+                if (i >= 0) itens[i] = p to (itens[i].second + q) else itens.add(p to q)
                 redesenharItens()
             }.setNegativeButton(R.string.btn_cancelar, null).show()
     }
@@ -114,7 +107,7 @@ class NovoPedidoActivity : AppCompatActivity() {
             R.id.chipCartao -> getString(R.string.pag_cartao)
             else -> getString(R.string.pag_pix)
         }
-        // Só id e quantidade vão ao servidor; o preço vem do banco.
+
         val json = JSONArray().apply { itens.forEach { (p, q) -> put(JSONObject().put("produto_id", p.id).put("quantidade", q)) } }.toString()
 
         val botao = findViewById<MaterialButton>(R.id.btnSalvarPedido)

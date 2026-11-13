@@ -73,7 +73,6 @@
     <string name="err_estoque">Cantidad inválida. Usa un número entero mayor o igual a cero.</string>
     <string name="msg_produto_salvo">¡Producto guardado!</string>
 
-    <!-- ===== v2: panel, pedidos, clientes, perfil y WhatsApp ===== -->
     <string name="saudacao" formatted="true">Hola, %1$s</string>
     <string name="inicio_faturamento">Ingresos del mes</string>
     <string name="inicio_vs_anterior" formatted="true">%1$s vs. mes anterior</string>

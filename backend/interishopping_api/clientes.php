@@ -1,5 +1,4 @@
 <?php
-// GET: usuario_id, q (opcional)  ->  clientes do vendedor com nº de pedidos e total gasto.
 require __DIR__ . '/config.php';
 
 $uid = usuario_id_get();
@@ -16,7 +15,7 @@ com_erro_tratado(function () use ($uid, $q) {
     if ($q !== '') {
         $sql .= ' AND (c.nome LIKE :q1 OR c.telefone LIKE :q2)';
         $par['q1'] = '%' . $q . '%';
-        $d = so_digitos($q);   // sem dígitos na busca = não filtra por telefone (evita casar com tudo)
+        $d = so_digitos($q);
         $par['q2'] = $d === '' ? '#' : '%' . $d . '%';
     }
     $st = pdo()->prepare($sql . ' GROUP BY c.id, c.nome, c.telefone ORDER BY c.nome');

@@ -1,5 +1,4 @@
 <?php
-// POST: usuario_id, id  ->  exclusão lógica (ativo = 0) para não quebrar pedidos antigos (DELETE do CRUD).
 require __DIR__ . '/config.php';
 exigir_post();
 

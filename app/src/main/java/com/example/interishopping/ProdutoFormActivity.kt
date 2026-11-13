@@ -1,4 +1,4 @@
-package com.example.interishopping   // <- troque pelo package do seu projeto
+package com.example.interishopping
 
 import android.os.Bundle
 import android.widget.TextView
@@ -9,7 +9,6 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import java.util.Locale
 
-/** Incluir (id = 0) ou editar (id > 0) um produto. */
 class ProdutoFormActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +26,7 @@ class ProdutoFormActivity : AppCompatActivity() {
         val etEstoque = findViewById<TextInputEditText>(R.id.etEstoque)
         val btn = findViewById<MaterialButton>(R.id.btnSalvarProduto)
 
-        if (id > 0) {   // modo edição: preenche os campos
+        if (id > 0) {
             findViewById<TextView>(R.id.tvTitulo).setText(R.string.titulo_editar_produto)
             etNome.setText(intent.getStringExtra("nome"))
             etCategoria.setText(intent.getStringExtra("categoria"))
@@ -41,7 +40,6 @@ class ProdutoFormActivity : AppCompatActivity() {
             val preco = Validar.valor(etPreco.text?.toString().orEmpty())
             val estoque = etEstoque.text?.toString()?.trim()?.toIntOrNull()?.takeIf { it >= 0 }
 
-            // J2 da Etapa 2: nome vazio e preço negativo são recusados com mensagem clara.
             tilNome.error = if (nome.isEmpty()) getString(R.string.err_nome_produto) else null
             tilPreco.error = if (preco == null) getString(R.string.err_preco) else null
             tilEstoque.error = if (estoque == null) getString(R.string.err_estoque) else null
@@ -57,7 +55,7 @@ class ProdutoFormActivity : AppCompatActivity() {
                 ctx = this,
                 onOk = {
                     Toast.makeText(this, R.string.msg_produto_salvo, Toast.LENGTH_SHORT).show()
-                    finish()   // a lista recarrega no onResume
+                    finish()
                 },
                 onFim = { btn.isEnabled = true }
             )

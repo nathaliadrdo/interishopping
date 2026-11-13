@@ -6,7 +6,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 
-/** Perfil: nome da conta, servidor configurado (ApiClient.BASE_URL) e "Sair da conta". */
 class PerfilActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +19,6 @@ class PerfilActivity : AppCompatActivity() {
 
         findViewById<MaterialButton>(R.id.btnSair).setOnClickListener {
             Session.sair(this)
-            // Limpa toda a pilha de telas para que "voltar" não retorne a uma tela de quem saiu.
             startActivity(Intent(this, LoginActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
         }
     }

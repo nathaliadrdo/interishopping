@@ -1,8 +1,4 @@
 <?php
-// POST: usuario_id, cliente_nome, cliente_telefone, entrega, desconto, pagamento, itens
-//   itens = JSON: [{"produto_id":1,"quantidade":2}, ...]
-// Cria o pedido numa TRANSAÇÃO: cliente (se novo) + pedido + itens + baixa de estoque.
-// O total é calculado AQUI, com os preços do banco (o app não manda o total, para não ser fraudável).
 require __DIR__ . '/config.php';
 exigir_post();
 
@@ -25,7 +21,6 @@ try {
     $db = pdo();
     $db->beginTransaction();
 
-    // 1) Cliente: reaproveita pelo telefone, senão cria.
     $st = $db->prepare('SELECT id FROM cliente WHERE usuario_id = :u AND telefone = :t LIMIT 1');
     $st->execute(['u' => $uid, 't' => $tel]);
     $cliente = $st->fetch();
@@ -37,7 +32,6 @@ try {
         $clienteId = (int)$db->lastInsertId();
     }
 
-    // 2) Itens: confere produto (do usuário, ativo), estoque e soma o subtotal com o preço do banco.
     $subtotal = 0.0;
     $linhas = [];
     foreach ($itens as $it) {
@@ -55,7 +49,6 @@ try {
 
     $total = max(0, $subtotal + (float)$entrega - (float)$desconto);
 
-    // 3) Pedido + itens + baixa de estoque.
     $db->prepare('INSERT INTO pedido (usuario_id, cliente_id, status, entrega, pagamento, desconto, total)
                   VALUES (:u, :c, "pendente", :e, :pg, :d, :t)')
        ->execute(['u' => $uid, 'c' => $clienteId, 'e' => $entrega, 'pg' => $pagamento, 'd' => $desconto, 't' => $total]);

@@ -100,7 +100,6 @@ def stakeholders(wb,out,tmp):
         media=st.mean(a["sus"] for a in sc)
         story.append(P("Média SUS: <b>%.1f</b> (%s), com %d respondente(s). Referência de mercado: 68."%(media,sus_class(media),len(sc))))
         medq=[st.mean(a["q"][i] for a in sc) for i in range(10)]
-        # nota ajustada: 0-4 (quanto maior melhor)
         adj=[(m-1) if i%2==0 else (5-m) for i,m in enumerate(medq)]
         fig,ax=plt.subplots(figsize=(7,3.2)); ax.bar(range(1,11),adj,color=[VERDE if v>=3 else AMAR if v>=2 else VERM for v in adj]); ax.set_ylim(0,4); ax.set_xticks(range(1,11)); ax.set_xlabel("Afirmação do SUS (Q1 a Q10)"); ax.set_ylabel("Contribuição média (0 a 4)"); ax.set_title("Contribuição de cada afirmação para a nota SUS",fontsize=10)
         fig.tight_layout(); p2=os.path.join(tmp,"stk2.png"); fig.savefig(p2,dpi=160); plt.close(fig)

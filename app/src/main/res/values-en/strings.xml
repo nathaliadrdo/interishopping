@@ -73,7 +73,6 @@
     <string name="err_estoque">Invalid quantity. Use a whole number zero or greater.</string>
     <string name="msg_produto_salvo">Product saved!</string>
 
-    <!-- ===== v2: dashboard, orders, customers, profile and WhatsApp ===== -->
     <string name="saudacao" formatted="true">Hi, %1$s</string>
     <string name="inicio_faturamento">Revenue this month</string>
     <string name="inicio_vs_anterior" formatted="true">%1$s vs. last month</string>

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 
-/** Clientes (GET clientes.php). O botão de WhatsApp abre a conversa sem mensagem pronta. */
 class ClientesActivity : AppCompatActivity() {
     private val adapter = ClienteAdapter { Whats.abrir(this, it.telefone, "") }
 

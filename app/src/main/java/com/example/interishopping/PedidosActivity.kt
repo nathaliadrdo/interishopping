@@ -11,10 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 
-/** Lista de pedidos com filtro por status e busca por cliente (GET pedidos.php). */
 class PedidosActivity : AppCompatActivity() {
     private lateinit var adapter: PedidoAdapter
-    private var filtro = ""        // "" = todos; senão a chave do status (ex.: "pendente")
+    private var filtro = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +57,6 @@ class PedidosActivity : AppCompatActivity() {
         })
     }
 
-    /** Atalho do card: busca o pedido completo (com itens) e abre o WhatsApp com a mensagem do status atual. */
     private fun avisar(p: PedidoResumo) {
         ApiClient.service.pedido(Session.usuarioId(this), p.id).executar(this, onOk = { det ->
             Whats.abrir(this, det.cliente_telefone, montarMensagem(this, det, StatusPedido.deChave(det.status)))

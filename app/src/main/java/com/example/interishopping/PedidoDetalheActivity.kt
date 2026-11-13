@@ -9,11 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.chip.ChipGroup
 
-/**
- * Detalhe do pedido (GET pedido.php): andamento, itens e total.
- * O vendedor escolhe o status nos chips; a mensagem do WhatsApp muda junto (prévia).
- * "Atualizar status" grava no banco (POST atualizar_status.php); "Enviar pelo WhatsApp" abre o app com o texto pronto.
- */
 class PedidoDetalheActivity : AppCompatActivity() {
     private var pedido: PedidoDetalhe? = null
     private var statusSalvo = StatusPedido.PENDENTE

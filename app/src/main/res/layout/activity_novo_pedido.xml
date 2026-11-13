@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Tela Novo pedido: cliente + WhatsApp, itens (dinâmicos), entrega, desconto, pagamento e total -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -86,7 +85,6 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <!-- Cada item adicionado vira uma linha aqui (montada pelo NovoPedidoActivity) -->
             <LinearLayout
                 android:id="@+id/listaItens"
                 android:layout_width="match_parent"

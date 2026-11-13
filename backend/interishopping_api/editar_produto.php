@@ -1,5 +1,4 @@
 <?php
-// POST: usuario_id, id, nome, categoria, preco, estoque  ->  atualiza (UPDATE do CRUD).
 require __DIR__ . '/config.php';
 exigir_post();
 
@@ -15,7 +14,6 @@ if (!ctype_digit($id) || $nome === '' || mb_strlen($nome) > 150 || !is_numeric($
 }
 
 com_erro_tratado(function () use ($uid, $id, $nome, $cat, $preco, $est) {
-    // O filtro por usuario_id garante o isolamento: ninguém edita produto de outro vendedor.
     $st = pdo()->prepare('UPDATE produto SET nome = :n, categoria = :c, preco = :p, estoque = :e
                           WHERE id = :id AND usuario_id = :u AND ativo = 1');
     $st->execute(['n' => $nome, 'c' => $cat, 'p' => $preco, 'e' => (int)$est, 'id' => (int)$id, 'u' => $uid]);

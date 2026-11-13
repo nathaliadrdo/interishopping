@@ -8,12 +8,10 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
-/** Grade de produtos. Estoque abaixo de 5 destaca a barra e o texto em vermelho (mesma regra do dashboard.php). */
 class ProdutoAdapter(
     private val aoEditar: (Produto) -> Unit,
     private val aoExcluir: (Produto) -> Unit
 ) : RecyclerView.Adapter<ProdutoAdapter.VH>() {
-
     private var itens: List<Produto> = emptyList()
     fun atualizar(novos: List<Produto>) { itens = novos; notifyDataSetChanged() }
 

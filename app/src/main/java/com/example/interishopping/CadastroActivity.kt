@@ -1,4 +1,4 @@
-package com.example.interishopping   // <- troque pelo package do seu projeto
+package com.example.interishopping
 
 import android.os.Bundle
 import android.util.Patterns
@@ -32,7 +32,6 @@ class CadastroActivity : AppCompatActivity() {
             val telefone = etTelefone.text?.toString()?.trim().orEmpty()
             val senha = etSenha.text?.toString().orEmpty()
 
-            // Validação no aplicativo (1ª camada; a API valida de novo)
             tilNome.error = if (nome.length < 2) getString(R.string.err_nome) else null
             tilEmail.error = if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) getString(R.string.err_email) else null
             tilTelefone.error = if (!Validar.telefone(telefone)) getString(R.string.err_telefone) else null
@@ -44,7 +43,7 @@ class CadastroActivity : AppCompatActivity() {
                 ctx = this,
                 onOk = {
                     Toast.makeText(this, R.string.msg_conta_criada, Toast.LENGTH_LONG).show()
-                    finish()   // volta ao login
+                    finish()
                 },
                 onFim = { btn.isEnabled = true }
             )

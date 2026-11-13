@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Português (padrão). Inglês em values-en e espanhol em values-es. -->
     <string name="app_name">InteriShopping</string>
     <string name="tagline">Seus pedidos em um só lugar</string>
     <string name="btn_entrar">Entrar</string>
@@ -74,7 +73,6 @@
     <string name="err_estoque">Quantidade inválida. Use um número inteiro maior ou igual a zero.</string>
     <string name="msg_produto_salvo">Produto salvo!</string>
 
-    <!-- ===== v2: painel, pedidos, clientes, perfil e WhatsApp ===== -->
     <string name="saudacao" formatted="true">Olá, %1$s</string>
     <string name="inicio_faturamento">Faturamento do mês</string>
     <string name="inicio_vs_anterior" formatted="true">%1$s vs. mês anterior</string>

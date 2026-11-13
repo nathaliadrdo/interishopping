@@ -5,7 +5,6 @@ import android.content.Intent
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 
-/** As cinco abas da barra de navegação inferior (include_nav.xml). */
 enum class Aba(val viewId: Int, val tela: Class<out Activity>) {
     INICIO(R.id.navInicio, InicioActivity::class.java),
     PEDIDOS(R.id.navPedidos, PedidosActivity::class.java),
@@ -15,11 +14,6 @@ enum class Aba(val viewId: Int, val tela: Class<out Activity>) {
 }
 
 object Nav {
-    /**
-     * Pinta a aba ativa e configura o clique das outras.
-     * Regra: o Início é a "raiz". Abrir outra aba empilha a tela por cima do Início;
-     * voltar para o Início desempilha tudo (CLEAR_TOP). Assim o botão "voltar" do aparelho sempre leva ao Início.
-     */
     fun configurar(activity: Activity, ativa: Aba) {
         val verde = ContextCompat.getColor(activity, R.color.verde_texto)
         Aba.values().forEach { aba ->
@@ -38,7 +32,7 @@ object Nav {
         if (destino == Aba.INICIO) {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
         } else if (atual != Aba.INICIO) {
-            activity.finish()   // troca de aba sem acumular telas na pilha
+            activity.finish()
         }
         activity.startActivity(intent)
     }

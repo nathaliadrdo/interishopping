@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 
-/** Catálogo em grade (CRUD de produtos, Etapa 3) com resumo no cabeçalho. */
 class ProdutosActivity : AppCompatActivity() {
     private lateinit var adapter: ProdutoAdapter
 

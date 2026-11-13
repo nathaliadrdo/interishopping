@@ -1,7 +1,4 @@
 <?php
-// GET: testa se a API e o banco estão no ar. Abra no navegador:
-//   http://localhost/interishopping_api/ping.php
-// Se der "ok", a conexão com as credenciais do config está funcionando.
 require __DIR__ . '/config.php';
 
 com_erro_tratado(function () {

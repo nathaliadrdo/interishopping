@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Barra de navegação inferior, repetida em Início, Pedidos, Catálogo, Clientes e Perfil.
-     Quem configura os cliques e a aba ativa é o Nav.kt. -->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

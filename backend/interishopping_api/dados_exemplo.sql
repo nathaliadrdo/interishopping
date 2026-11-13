@@ -1,6 +1,3 @@
--- InteriShopping - DADOS DE EXEMPLO (opcional, só para demonstração).
--- Rode DEPOIS de criar sua conta pelo app (ela vira o usuario id 1; confira em SELECT id, nome FROM usuario;).
--- Troque @uid se o seu id for outro. Todos os nomes/telefones/valores abaixo são fictícios.
 SET @uid = 1;
 
 INSERT INTO produto (usuario_id, nome, categoria, preco, estoque) VALUES
@@ -14,7 +11,6 @@ INSERT INTO cliente (usuario_id, nome, telefone) VALUES
  (@uid, 'Marcos Lima', '11977772222'),
  (@uid, 'Joana Reis',  '11966663333');
 
--- Pedido 1: Carla, a caminho (hoje)
 INSERT INTO pedido (usuario_id, cliente_id, status, entrega, pagamento, desconto, total)
  SELECT @uid, id, 'a_caminho', 8, 'Pix', 0, 93 FROM cliente WHERE usuario_id=@uid AND telefone='11988881111';
 SET @p1 = LAST_INSERT_ID();
@@ -23,14 +19,12 @@ INSERT INTO item_pedido (pedido_id, produto_id, quantidade, preco_unitario)
 INSERT INTO item_pedido (pedido_id, produto_id, quantidade, preco_unitario)
  SELECT @p1, id, 10, 1.50 FROM produto WHERE usuario_id=@uid AND nome='Brigadeiro';
 
--- Pedido 2: Marcos, pendente (ontem)
 INSERT INTO pedido (usuario_id, cliente_id, status, entrega, pagamento, desconto, total, criado_em)
  SELECT @uid, id, 'pendente', 0, 'Dinheiro', 0, 58, DATE_SUB(NOW(), INTERVAL 1 DAY) FROM cliente WHERE usuario_id=@uid AND telefone='11977772222';
 SET @p2 = LAST_INSERT_ID();
 INSERT INTO item_pedido (pedido_id, produto_id, quantidade, preco_unitario)
  SELECT @p2, id, 1, 58.00 FROM produto WHERE usuario_id=@uid AND nome='Torta de limão';
 
--- Pedido 3: Joana, em produção (há 3 dias)
 INSERT INTO pedido (usuario_id, cliente_id, status, entrega, pagamento, desconto, total, criado_em)
  SELECT @uid, id, 'em_producao', 0, 'Pix', 0, 30, DATE_SUB(NOW(), INTERVAL 3 DAY) FROM cliente WHERE usuario_id=@uid AND telefone='11966663333';
 SET @p3 = LAST_INSERT_ID();

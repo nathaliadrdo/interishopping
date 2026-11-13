@@ -1,5 +1,4 @@
 <?php
-// GET: usuario_id, q (opcional)  ->  lista os produtos ativos do usuário (READ do CRUD).
 require __DIR__ . '/config.php';
 
 $uid = $_GET['usuario_id'] ?? '';

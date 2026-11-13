@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Guia de estilo (Etapa 1) -->
     <color name="verde_pinheiro">#14503F</color>
     <color name="acafrao">#F4B23E</color>
     <color name="menta">#DDF3E6</color>
@@ -12,15 +11,12 @@
     <color name="branco">#FFFFFF</color>
     <color name="texto_secundario">#5B6761</color>
 
-    <!-- Novos (Etapa 3): cores que NÃO mudam no modo escuro -->
     <color name="sobre_verde">#FFFFFF</color>
     <color name="sobre_verde_suave">#DDF3E6</color>
     <color name="tinta_fixa">#1B2420</color>
-    <!-- Novos (Etapa 3): cores que mudam no modo escuro (ver values-night/colors.xml) -->
     <color name="verde_texto">#14503F</color>
     <color name="alerta_claro">#FBE4E1</color>
 
-    <!-- v2: cores dos gráficos e do status "em produção" -->
     <color name="verde_medio">#4FB38C</color>
     <color name="verde_claro_barra">#BFE5CF</color>
     <color name="azul_producao">#3B7DD8</color>

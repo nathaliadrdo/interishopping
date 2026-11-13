@@ -1,5 +1,4 @@
 <?php
-// POST: usuario_id, nome, categoria, preco, estoque  ->  cria o produto (CREATE do CRUD).
 require __DIR__ . '/config.php';
 exigir_post();
 
@@ -9,7 +8,6 @@ $cat  = campo('categoria');
 $preco = campo('preco');
 $est  = campo('estoque');
 
-// Validação na API: nome obrigatório, preço >= 0, estoque inteiro >= 0 (J2 da Etapa 2)
 if ($nome === '' || mb_strlen($nome) > 150 || !is_numeric($preco) || (float)$preco < 0 || !ctype_digit($est)) {
     json_out(['error' => 'Dados inválidos'], 400);
 }

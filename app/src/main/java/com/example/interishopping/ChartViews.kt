@@ -8,13 +8,8 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
 
-/** Converte dp em pixels (os gráficos desenham em pixels). */
 private fun View.dp(v: Float) = v * resources.displayMetrics.density
 
-/**
- * Gráfico de barras da semana (Canvas, sem biblioteca externa).
- * dados: 7 valores (segunda..domingo); rotulos: 7 textos; a barra de maior valor fica em verde-escuro.
- */
 class BarChartView @JvmOverloads constructor(c: Context, a: AttributeSet? = null) : View(c, a) {
     private var dados: List<Double> = List(7) { 0.0 }
     private var rotulos: List<String> = List(7) { "" }
@@ -40,7 +35,7 @@ class BarChartView @JvmOverloads constructor(c: Context, a: AttributeSet? = null
         val idxMax = dados.indices.maxByOrNull { dados[it] } ?: -1
         for (i in 0 until n) {
             val cx = fatia * i + fatia / 2
-            val h = (dados[i] / maximo * alturaMax).toFloat().coerceAtLeast(dp(4f))   // mínimo 4dp para a barra aparecer
+            val h = (dados[i] / maximo * alturaMax).toFloat().coerceAtLeast(dp(4f))
             barra.color = if (i == idxMax && dados[i] > 0) corForte else corSuave
             val r = RectF(cx - largura / 2, alturaMax - h + dp(6f), cx + largura / 2, alturaMax + dp(6f))
             canvas.drawRoundRect(r, dp(8f), dp(8f), barra)
@@ -49,7 +44,6 @@ class BarChartView @JvmOverloads constructor(c: Context, a: AttributeSet? = null
     }
 }
 
-/** Gráfico de rosca (donut) dos pedidos por status; o número total fica no centro. */
 class DonutChartView @JvmOverloads constructor(c: Context, a: AttributeSet? = null) : View(c, a) {
     private var valores: List<Int> = emptyList()
     private var cores: List<Int> = emptyList()
@@ -79,7 +73,7 @@ class DonutChartView @JvmOverloads constructor(c: Context, a: AttributeSet? = nu
                 if (v <= 0) return@forEachIndexed
                 val varredura = v * 360f / total
                 arco.color = cores[i]
-                canvas.drawArc(oval, inicio, (varredura - 2f).coerceAtLeast(1f), false, arco)   // 2° de folga entre fatias
+                canvas.drawArc(oval, inicio, (varredura - 2f).coerceAtLeast(1f), false, arco)
                 inicio += varredura
             }
         }
@@ -90,10 +84,6 @@ class DonutChartView @JvmOverloads constructor(c: Context, a: AttributeSet? = nu
     }
 }
 
-/**
- * Andamento do pedido: 4 bolinhas ligadas por uma linha.
- * Etapas anteriores = verde com check; etapa atual = açafrão; futuras = vazias.
- */
 class StatusStepperView @JvmOverloads constructor(c: Context, a: AttributeSet? = null) : View(c, a) {
     private var atual = 0
     private val rotulos = StatusPedido.values().map { c.getString(it.rotulo) }
@@ -129,7 +119,7 @@ class StatusStepperView @JvmOverloads constructor(c: Context, a: AttributeSet? =
                 i < atual -> {
                     bola.color = verde; canvas.drawCircle(x, y, raio, bola)
                     traco.color = branco; traco.strokeWidth = dp(2.4f)
-                    canvas.drawLine(x - dp(6f), y, x - dp(2f), y + dp(4f), traco)   // o "check"
+                    canvas.drawLine(x - dp(6f), y, x - dp(2f), y + dp(4f), traco)
                     canvas.drawLine(x - dp(2f), y + dp(4f), x + dp(6f), y - dp(4f), traco)
                 }
                 i == atual -> {

@@ -1,5 +1,4 @@
 <?php
-// GET: usuario_id, id  ->  detalhe de UM pedido (cabeçalho + itens). Só do próprio vendedor.
 require __DIR__ . '/config.php';
 
 $uid = usuario_id_get();

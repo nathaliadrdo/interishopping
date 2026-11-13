@@ -1,4 +1,4 @@
-package com.example.interishopping   // <- troque pelo package do seu projeto
+package com.example.interishopping
 
 import android.content.Intent
 import android.os.Bundle
@@ -23,18 +23,17 @@ class LoginActivity : AppCompatActivity() {
             val login = etLogin.text?.toString()?.trim().orEmpty()
             val senha = etSenha.text?.toString().orEmpty()
 
-            // Regra: os dois campos são obrigatórios; o erro aparece no próprio campo.
             tilLogin.error = if (login.isEmpty()) getString(R.string.err_campo_obrigatorio) else null
             tilSenha.error = if (senha.isEmpty()) getString(R.string.err_campo_obrigatorio) else null
             if (login.isEmpty() || senha.isEmpty()) return@setOnClickListener
 
-            btnEntrar.isEnabled = false   // evita toques repetidos durante a chamada
+            btnEntrar.isEnabled = false
             ApiClient.service.login(login, senha).executar(
                 ctx = this,
                 onOk = { resp ->
                     Session.salvar(this, resp.usuario_id, resp.nome)
                     startActivity(Intent(this, InicioActivity::class.java))
-                    finish()   // Voltar não retorna ao login
+                    finish()
                 },
                 onFim = { btnEntrar.isEnabled = true }
             )
